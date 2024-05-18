@@ -2468,6 +2468,10 @@ input[type=number]::-webkit-inner-spin-button {
   display: none;
 }
 
+.write__item.desktop {
+  margin-left: 140px;
+}
+
 @media (max-width: 769px) {
   [class*=__container] {
     max-width: 290px;

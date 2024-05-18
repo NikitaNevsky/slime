@@ -8,5 +8,5 @@
     // Собираем все данные в письмо
     $message = "Имя пользователя: $name \nЭлектронная почта: $email \nТелефон: $phone";
     // Отправляем письмо
-    $send = mail($to, $header, $phone, "Content-type:text/plain; charset = UTF-8\r\nFrom:$email");
+    $send = mail($to, $header, $message, "Content-type:text/plain; charset = UTF-8\r\nFrom:$email");
 ?>
