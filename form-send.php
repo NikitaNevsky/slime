@@ -9,9 +9,9 @@
     $body = "Имя: $name\nEmail: $email\nТелефон: $phone";
 
     if (mail($to, $subject, $body)) {
-        echo json_encode(array('success' => true));
+        header('Location: https://nikitanevsky.github.io/slime/index.html?success');
     } else {
-        echo json_encode(array('success' => false));
+        header('Location: https://nikitanevsky.github.io/slime/index.html?error');
     }
 
 ?>
