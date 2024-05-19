@@ -614,18 +614,24 @@
 					</div>
 					<div class="feedback__info">
 						<div class="feedback__info--left">
-							<form action="https://servicejob.pro/form-send.php" class="form" method="post" id="contact-form">
+							<form class="form uniForm" method="post" id="contact-form">
+								<!-- Hidden Required Fields -->
+								<input type="hidden" name="project_name" value="Фабрика слаймов">
+								<input type="hidden" name="admin_email" value="fabrikaslime.franchise@gmail.com">
+								<input type="hidden" name="form_subject" value="Заявка с сайта Фабрика слаймов">
+								<!-- END Hidden Required Fields -->
+
 								<div class="form__input">
-									<input type="text" id="name" name="name" placeholder="Ваше имя" required>
+									<input type="text" id="name" name="Имя" placeholder="Ваше имя" required>
 								</div>
 								<div class="form__input">
-									<input type="email" id="email" name="email" placeholder="Ваш E-Mail" required>
+									<input type="text" id="email" name="E-mail" placeholder="Ваш E-Mail" required>
 								</div>
 								<div class="form__input">
-									<input type="tel" id="phone" name="phone" placeholder="Ваш телефон" required>
+									<input type="text" id="phone" name="Телефон" placeholder="Ваш телефон" required>
 								</div>
 								<div class="form__checkbox">
-									<input type="checkbox" class="custom-checkbox" id="personal" name="personal" checked>
+									<input type="checkbox" class="custom-checkbox" id="personal" name="Согласие" checked>
 									<label for="personal">Даю согласие на обработку персональных данных</label>
 								</div>
 								<button class="scroll-to btn" type="submit">
@@ -778,17 +784,22 @@
 							</div>
 						</div>
 						<div class="form__right">
+							<!-- Hidden Required Fields -->
+							<input type="hidden" name="project_name" value="Фабрика слаймов">
+							<input type="hidden" name="admin_email" value="fabrikaslime.franchise@gmail.com">
+							<input type="hidden" name="form_subject" value="Заявка с формы Остались вопросы на сайте Фабрика слаймов">
+							<!-- END Hidden Required Fields -->
 							<div class="form__input">
-								<input type="text" placeholder="Ваше имя" required>
+								<input type="text" id="name" name="Имя" placeholder="Ваше имя" required>
 							</div>
 							<div class="form__input">
-								<input type="email" placeholder="Ваш E-Mail" required>
+								<input type="email" id="email" name="E-mail" placeholder="Ваш E-Mail" required>
 							</div>
 							<div class="form__input">
-								<input type="tel" placeholder="Ваш телефон" required>
+								<input type="tel" id="phone" name="Телефон" placeholder="Ваш телефон" required>
 							</div>
 							<div class="form__checkbox">
-								<input type="checkbox" class="custom-checkbox" id="personal2" name="personal2" checked>
+								<input type="checkbox" class="custom-checkbox" id="personal2" name="Согласие" checked>
 								<label for="personal2">Даю согласие на обработку персональных данных</label>
 							</div>
 							<button class="scroll-to btn" type="submit">
@@ -873,53 +884,11 @@
 				</div>
 			</div>
 		</footer>
-
-		<div id="success-message" class="hidden">
-			Спасибо за ваше сообщение! Мы скоро свяжемся с вами.
-			<button class="btn btn__success">Хорошо</button>
-		</div>
-	
-		<div id="error-message" class="hidden">
-			Произошла ошибка при отправке сообщения. Пожалуйста, попробуйте позже.
-			<button class="btn btn__error">Хорошо</button>
-		</div>
 	</div>
-
-	<script>
-        $(document).ready(function() {
-            $("#contact-form").submit(function(event) {
-                event.preventDefault();
-
-                var name = $("#name").val();
-                var email = $("#email").val();
-                var message = $("#phone").val();
-
-                $.ajax({
-                    url: "send.php",
-                    method: "POST",
-                    data: {
-                        name: name,
-                        email: email,
-                        phone: phone
-                    },
-                    success: function(response) {
-                        if (response.success) {
-                            $("#success-message").show();
-                            $("#contact-form").hide();
-                        } else {
-                            $("#error-message").show();
-                        }
-                    },
-                    error: function() {
-                        $("#error-message").show();
-                    }
-                });
-            });
-        });
-    </script>
 
 	<script src="js/jquery-3.1.1.min.js"></script>
 	<script src="owlcarousel/owl.carousel.min.js"></script>
+	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
