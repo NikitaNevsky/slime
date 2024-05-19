@@ -614,15 +614,15 @@
 					</div>
 					<div class="feedback__info">
 						<div class="feedback__info--left">
-							<form action="https://servicejob.pro/send.php" class="form" method="post">
+							<form action="https://servicejob.pro/form-send.php" class="form" method="post" id="contact-form">
 								<div class="form__input">
-									<input type="text" name="name" placeholder="Ваше имя" required>
+									<input type="text" id="name" name="name" placeholder="Ваше имя" required>
 								</div>
 								<div class="form__input">
-									<input type="email" name="email" placeholder="Ваш E-Mail" required>
+									<input type="email" id="email" name="email" placeholder="Ваш E-Mail" required>
 								</div>
 								<div class="form__input">
-									<input type="tel" name="phone" placeholder="Ваш телефон" required>
+									<input type="tel" id="phone" name="phone" placeholder="Ваш телефон" required>
 								</div>
 								<div class="form__checkbox">
 									<input type="checkbox" class="custom-checkbox" id="personal" name="personal" checked>
@@ -873,7 +873,50 @@
 				</div>
 			</div>
 		</footer>
+
+		<div id="success-message" class="hidden">
+			Спасибо за ваше сообщение! Мы скоро свяжемся с вами.
+			<button class="btn btn__success">Хорошо</button>
+		</div>
+	
+		<div id="error-message" class="hidden">
+			Произошла ошибка при отправке сообщения. Пожалуйста, попробуйте позже.
+			<button class="btn btn__error">Хорошо</button>
+		</div>
 	</div>
+
+	<script>
+        $(document).ready(function() {
+            $("#contact-form").submit(function(event) {
+                event.preventDefault();
+
+                var name = $("#name").val();
+                var email = $("#email").val();
+                var message = $("#phone").val();
+
+                $.ajax({
+                    url: "send.php",
+                    method: "POST",
+                    data: {
+                        name: name,
+                        email: email,
+                        phone: phone
+                    },
+                    success: function(response) {
+                        if (response.success) {
+                            $("#success-message").show();
+                            $("#contact-form").hide();
+                        } else {
+                            $("#error-message").show();
+                        }
+                    },
+                    error: function() {
+                        $("#error-message").show();
+                    }
+                });
+            });
+        });
+    </script>
 
 	<script src="js/jquery-3.1.1.min.js"></script>
 	<script src="owlcarousel/owl.carousel.min.js"></script>

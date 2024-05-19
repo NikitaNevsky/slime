@@ -2472,6 +2472,22 @@ input[type=number]::-webkit-inner-spin-button {
   margin-left: 140px;
 }
 
+.hidden {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  display: none;
+  position: absolute;
+  top: 300px;
+  left: calc(50% - 200px);
+  width: 400px;
+  height: 200px;
+  padding: 30px;
+  border-radius: 30px;
+  background: #ffffff;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.07);
+}
+
 @media (max-width: 769px) {
   [class*=__container] {
     max-width: 290px;
